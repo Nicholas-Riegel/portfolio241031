@@ -13,7 +13,7 @@ function Navbar() {
 
     const handleLinkClick = (e, href) => {
         e.preventDefault();
-        const targetElement = document.getElementById(href);
+        const targetElement = document.querySelector(href);
         if (targetElement){
             const offset = -85;
             const elementPosition = targetElement.getBoundingClientRect().top;
