@@ -1,3 +1,4 @@
+import About from "./components/About"
 import HeroSection from "./components/HeroSection"
 import Navbar from "./components/Navbar"
 
@@ -6,6 +7,7 @@ const App = () => {
     <main className="overflow-x-hidden bg-black tracking-tighter text-gray-200 antialiased">
       <Navbar />
       <HeroSection />
+      <About />
     </main>
   )
 }
