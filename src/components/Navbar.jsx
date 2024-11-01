@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { FaTimes, FaBars } from 'react-icons/fa'
 import logo from '../assets/logo.png'
 import { NAVIGATION_LINKS } from '../constants/index'
 
@@ -56,6 +57,44 @@ function Navbar() {
                         </ul>
                     </div>
                 </div>
+            </div>
+                {/* Mobile Menu */}
+            <div className='rounded-lg backdrop-blur-md lg:hidden'>
+                <div className='flex items-center justify-between'>
+                    <div>
+                        <a href="#">
+                            <img src={logo} alt="logo" width={90} className='m-2'/>
+                        </a> 
+                    </div>
+                    <div className='flex items-center'>
+                        <button className='focux:outline-none lg:hidden'
+                        onClick={toggleMobileMenu}>
+                            {isMobileMenuOpen ? 
+                                (<FaTimes className="m-2 h-f w-5"/>) 
+                                :
+                                (<FaBars className="m-2 h-5 w-5"/>)
+                            }
+                        </button>
+                    </div>
+                </div>
+                {isMobileMenuOpen && (
+                    <ul className='ml-4 mt-4 flex flex-col gap-4 backdrop-blur-md'>
+                        {
+                            NAVIGATION_LINKS.map((item, index) => (
+                                    <li key={index}>
+                                        <a 
+                                            href={item.href} 
+                                            className='block w-full text-xl font-semibold '
+                                            onClick={(e) => handleLinkClick(e, item.href)}
+                                        >
+                                            {item.label}
+                                        </a>
+                                    </li>
+                                )
+                            )
+                        }
+                    </ul>
+                )}
             </div>
         </nav>
     </div>
